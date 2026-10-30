@@ -1,0 +1,9 @@
+{
+  "name": "aiuseflow-tradelab-5-live",
+  "version": "5.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "English-only AI research terminal with gated Binance Spot order tickets",
+  "scripts": {"start":"node server.js","test":"node --test test/*.test.js"},
+  "engines":{"node":">=20"}
+}
