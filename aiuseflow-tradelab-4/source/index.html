@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080d17" />
+  <meta name="description" content="AIUseFlow TradeLab — free crypto market research dashboard with candlestick charts, heuristic order blocks, watchlists and position sizing. Educational analytics only." />
+  <title>AIUseFlow TradeLab | Market Intelligence</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="AIUseFlow TradeLab home">
+        <span class="brand-mark"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17.5 8.3 12l3.5 3.2L20.7 6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 6h5.2v5.2" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-name">AIUseFlow <strong>TradeLab</strong><small>MARKET INTELLIGENCE</small></span>
+      </a>
+      <div class="sidebar-group-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="मुख्य नेविगेशन">
+        <a class="nav-link active" href="#overview" data-nav="overview"><span class="nav-icon">◈</span><span>Overview</span></a>
+        <a class="nav-link" href="#market" data-nav="market"><span class="nav-icon">▥</span><span>Live Charts</span></a>
+        <a class="nav-link" href="#scanner" data-nav="scanner"><span class="nav-icon">⌁</span><span>Market Scanner</span></a>
+        <a class="nav-link" href="#smart-lab" data-nav="smart-lab"><span class="nav-icon">✧</span><span>Smart AI Lab</span></a>
+        <a class="nav-link" href="#v4-lab" data-nav="v4-lab"><span class="nav-icon">✺</span><span>TradeLab 4.0</span></a>
+        <a class="nav-link" href="#risk" data-nav="risk"><span class="nav-icon">◉</span><span>Risk Calculator</span></a>
+        <a class="nav-link" href="#journal" data-nav="journal"><span class="nav-icon">☷</span><span>Trade Journal</span></a>
+      </nav>
+      <div class="sidebar-group-label second-label">ACCOUNT</div>
+      <div class="side-mini"><span class="avatar">F</span><span><strong>Free Explorer</strong><small>No account required</small></span><span class="free-pill">FREE</span></div>
+      <div class="sidebar-footer">
+        <div class="tiny-green-dot"></div><span>Public crypto data • No trading keys</span>
+        <p>Research tool only.<br />No investment advice or auto trading.</p>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="menu-toggle" type="button" aria-label="मेन्यू खोलें" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong>Market Overview</strong></div>
+        <div class="top-right"><span class="current-utc" id="clock">UTC --:--:--</span><span class="top-split"></span><span class="status-chip" id="feed-status"><span class="status-dot"></span> DEMO DATA</span><button id="refresh-button" class="icon-button refresh-icon" type="button" title="मार्केट डेटा रिफ्रेश करें" aria-label="मार्केट डेटा रिफ्रेश करें">↻</button></div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="hero-panel">
+          <div class="hero-headline"><div class="eyebrow"><span class="sparkle">✦</span> YOUR INTELLIGENCE DESK <span class="new-tag">4.0 · RESEARCH SUITE</span></div><h1>Trade smarter.<br /><span>See the market clearly.</span></h1><p>Opportunity Radar, Liquidity, Risk Guard, Backtesting, Paper Trading और छह research roles — बिना असली ऑर्डर लगाए।</p>
+          <div class="hero-actions"><a href="#market" class="btn btn-primary">Explore Smart Charts <span>↗</span></a><a href="#risk" class="btn btn-quiet">Position Calculator <span>→</span></a></div></div>
+          <div class="hero-illustration" aria-hidden="true"><div class="hero-orbit orbit-1"></div><div class="hero-orbit orbit-2"></div><div class="hero-center"><span>F</span><div class="orbit-label">SMART<br />ANALYTICS</div></div><svg viewBox="0 0 390 210" preserveAspectRatio="none"><path d="M0 163 52 143 89 152 126 112 166 122 205 70 245 90 283 59 319 82 390 20" fill="none" stroke="#a3a2ff" stroke-width="2.5" stroke-dasharray="8 9"/><path d="M0 163 52 143 89 152 126 112 166 122 205 70 245 90 283 59 319 82 390 20v190H0z" fill="url(#glow)"/><defs><linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7367f0" stop-opacity=".21"/><stop offset="1" stop-color="#7367f0" stop-opacity="0"/></linearGradient></defs></svg></div>
+        </section>
+
+        <section class="market-selector" aria-label="मार्केट चुनें"><div class="section-lead"><span class="micro-label">MARKET PULSE</span><h2>Your market at a glance</h2></div><div class="market-controls"><label for="symbol-select" class="sr-only">मार्केट पेयर</label><select id="symbol-select" class="modern-select"><option value="BTCUSDT">BTC / USDT</option><option value="ETHUSDT">ETH / USDT</option><option value="SOLUSDT">SOL / USDT</option><option value="BNBUSDT">BNB / USDT</option><option value="XRPUSDT">XRP / USDT</option></select><span class="market-tag">CRYPTO SPOT</span></div></section>
+
+        <section class="stats-grid" aria-label="मार्केट जानकारी">
+          <article class="stat-card"><div class="stat-head">Current Price<span class="stat-icon violet">$</span></div><div class="stat-value" id="stat-price">—</div><div class="stat-foot"><span id="stat-pct" class="positive">—</span><span class="muted">estimated 24h change</span></div></article>
+          <article class="stat-card"><div class="stat-head">Trend Structure<span class="stat-icon cyan">↗</span></div><div class="stat-value" id="stat-trend">—</div><div class="stat-foot"><span id="stat-trend-desc">EMA 20 / EMA 50</span></div></article>
+          <article class="stat-card"><div class="stat-head">ATR Volatility<span class="stat-icon yellow">◈</span></div><div class="stat-value" id="stat-atr">—</div><div class="stat-foot"><span class="muted">14-candle average true range</span></div></article>
+          <article class="stat-card"><div class="stat-head">Confluence Score<span class="stat-icon green">◎</span></div><div class="stat-value"><span id="stat-score">—</span><small class="score-outof">/ 100</small></div><div class="stat-foot"><span class="muted">Rule-based, not probability</span></div></article>
+        </section>
+
+        <section class="work-grid" id="market">
+          <article class="panel chart-panel"><div class="panel-header chart-head"><div><div class="micro-label">TECHNICAL STRUCTURE</div><h2><span id="chart-symbol">BTC / USDT</span> <span class="panel-hint">Price Action</span></h2></div><div class="timeframes" role="group" aria-label="चार्ट टाइमफ्रेम"><button type="button" data-interval="15m">15m</button><button type="button" class="selected" data-interval="1h">1H</button><button type="button" data-interval="4h">4H</button><button type="button" data-interval="1d">1D</button></div></div>
+            <div class="chart-legend"><span><i class="legend-square bull"></i>Bullish candles</span><span><i class="legend-square bear"></i>Bearish candles</span><span><i class="legend-line ema"></i>EMA 20</span><label class="overlay-switch"><input type="checkbox" id="overlay-ob" checked /><i class="legend-square ob"></i> Order Blocks</label>
+            <label class="overlay-switch"><input type="checkbox" id="overlay-fvg" checked /><i class="legend-square fvg"></i> FVG</label>
+            <label class="overlay-switch"><input type="checkbox" id="overlay-structure" checked /> ↯ BOS/CHoCH</label></div>
+            <div class="chart-wrap"><canvas id="price-chart" aria-label="Candlestick chart with possible order-block zones" role="img"></canvas><div id="chart-tooltip" class="chart-tooltip" hidden></div><div class="chart-overlay-note" id="chart-overlay-note">SAMPLE DATA</div></div>
+            <div class="chart-bottom"><span><span class="tiny-dot">●</span> Zones are technical estimates, not verified institutional orders</span><button id="download-chart" class="text-button" type="button">Save Chart PNG ↗</button></div>
+          </article>
+          <article class="panel insights-panel"><div class="panel-header"><div><div class="micro-label">HEURISTIC INSIGHTS</div><h2>Smart Market View</h2></div><span class="insight-spark">✳</span></div>
+            <div class="insight-status"><span id="insight-bias" class="insight-bias">ANALYSING</span><div class="score-ring" id="score-ring"><strong id="insight-score">--</strong><small>SCORE</small></div></div>
+            <p class="insight-explanation" id="insight-explanation">चार्ट लोड होने पर मार्केट स्ट्रक्चर यहाँ दिखेगा।</p>
+            <div class="insight-divider"></div>
+            <div class="key-levels"><h3>Key price levels</h3><div class="level-row"><span><i class="key-dot key-res"></i> Recent resistance</span><strong id="level-resistance">—</strong></div><div class="level-row"><span><i class="key-dot key-sup"></i> Recent support</span><strong id="level-support">—</strong></div><div class="level-row"><span><i class="key-dot key-bull"></i> Bullish block</span><strong id="level-bull">—</strong></div><div class="level-row"><span><i class="key-dot key-bear"></i> Bearish block</span><strong id="level-bear">—</strong></div></div>
+            <div class="model-note"><strong>How this works</strong><p>EMA, ATR और पिछली candles से बने नियम। यह AI language model या कोई guaranteed signal नहीं है।</p></div>
+          </article>
+        </section>
+
+        <section id="smart-lab" class="smart-lab-section">
+          <div class="smart-lab-heading"><div><span class="micro-label">PHASE 1 · ADVANCED INTELLIGENCE</span><h2>Smart Money Research Lab <span class="lab-version">4.0</span></h2><p>पाँच नए Smart Tools • हर संकेत का खुला नियम • कोई गारंटीड Signal नहीं</p></div><span id="smart-source" class="smart-source">SIMULATED SAMPLE · not live</span></div>
+          <div class="smart-kpis"><div class="smart-kpi"><small>RULE-BASED MARKET BIAS</small><strong id="smart-bias" class="smart-bias">—</strong><span>Inference, not forecast</span></div><div class="smart-kpi"><small>CONFLUENCE SCORE</small><strong id="smart-score">—</strong><span>0–100 points, not probability</span></div><div class="smart-kpi"><small>LAST STRUCTURE EVENT</small><strong id="smart-structure">—</strong><span>Confirmed swing break</span></div><div class="smart-kpi"><small>ACTIVE FAIR VALUE GAPS</small><strong id="smart-gap-count">—</strong><span>Unfilled / touched zones</span></div></div>
+          <div class="smart-panels"><article class="panel smart-panel"><div class="panel-header"><div><div class="micro-label">BOS / CHoCH</div><h2>Market Structure</h2></div><span class="subtle-pill">PIVOT CONFIRMED</span></div><p class="panel-subtext">तीन-तीन Candles से Swing पुष्टि होती है; फिर पिछले Swing के ऊपर/नीचे Close से Event बनता है।</p><div id="structure-list" class="signals-list"></div></article>
+          <article class="panel smart-panel"><div class="panel-header"><div><div class="micro-label">IMBALANCE MAPPING</div><h2>Fair Value Gap Detector</h2></div><span class="subtle-pill">3-CANDLE FVG</span></div><p class="panel-subtext">तीन Candles का Gap, फिर उसके वापस Touch या Fill होने की स्थिति। ये Liquidity या Institutional Trade का प्रमाण नहीं है।</p><div id="gap-list" class="signals-list"></div></article></div>
+          <article class="panel smart-explainer"><div class="panel-header"><div><div class="micro-label">TRANSPARENT RULE ENGINE</div><h2>Why this market score?</h2></div><span class="reason-icon">✧</span></div><div class="explainer-layout"><div><p class="panel-subtext">किस नियम ने Score ऊपर या नीचे किया, यहाँ साफ़ दिखता है। यह ChatGPT/Grok से जुड़ा LLM नहीं है।</p><ul id="smart-explain" class="reason-list"></ul></div><div class="logic-note"><strong>Explainability</strong><p id="smart-footnote">Loading mathematical rules…</p><small id="smart-last">Data source pending</small><small id="smart-snapshot">Last candle pending</small><span class="source-policy">DATA ETHICS: Never label synthetic data as live</span></div></div></article>
+          <article class="panel mtf-panel"><div class="panel-header"><div><div class="micro-label">5 ASSETS × 4 TIMEFRAMES</div><h2>Multi-Timeframe AI Scanner</h2></div><div class="mtf-actions"><button type="button" id="mtf-csv" class="btn btn-quiet btn-sm">↓ Export CSV</button><button type="button" id="mtf-refresh" class="btn btn-primary btn-sm">↻ Scan 5 assets × 4 TF</button></div></div><p class="panel-subtext">हर Cell में उसका खुद का Score और डेटा स्रोत दिखता है। LIVE सार्वजनिक Binance Candles हैं; SAMPLE केवल डेमो है। Cell पर क्लिक करके Chart खोलें।</p><div class="mtf-scroll"><div class="mtf-table"><div class="mtf-heading"><span>ASSET</span><span>15 MIN</span><span>1 HOUR</span><span>4 HOURS</span><span>1 DAY</span></div><div id="mtf-rows"></div></div></div><div class="mtf-bottom"><span id="mtf-coverage">0/20 live cells · 20 sample cells</span><span id="mtf-scan-time">Click Scan to request public data</span></div></article>
+        </section>
+
+
+<section class="v4-section" id="v4-lab">
+ <div class="v4-heading"><div><span class="micro-label">ADVANCED RESEARCH · v3.0 + v3.5 + v4.0</span><h2>TradeLab Intelligence Suite <span class="lab-version">4.0</span></h2><p>सबके लिए Free. Analysis rules are educational, never an order or guarantee.</p></div><span class="v4-privacy">🔒 Local notes · No trading keys</span></div>
+ <div class="v4-overview-grid">
+  <article class="v4-tile"><small>DATA HEALTH MONITOR</small><strong id="v4-health-status">Checking…</strong><div id="v4-health-detail" class="v4-small">Source details pending</div></article>
+  <article class="v4-tile"><small>NO-TRADE AI · RULES</small><strong id="v4-trade-gate">Checking…</strong><div id="v4-gate-explain" class="v4-small">Safety checks pending</div></article>
+  <article class="v4-tile"><small>EXPLAINABLE MARKET RESEARCH</small><strong id="v4-signal">—</strong><div id="v4-signal-explain" class="v4-small">No analysis yet</div></article>
+ </div>
+ <div class="v4-two">
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 3.0</span><h2>◉ Opportunity Radar</h2></div><button type="button" id="v4-radar-refresh" class="btn btn-primary btn-sm">Scan opportunities</button></div><p class="panel-subtext">5 assets × 4 timeframes. Source and cautions shown for every row; simulated cells cannot qualify as live opportunities.</p><div id="v4-radar" class="v4-stack"><p class="v4-small">Scanner data loading…</p></div></article>
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 3.5</span><h2>◈ Spot Liquidity Snapshot</h2></div><button type="button" id="v4-depth-refresh" class="btn btn-quiet btn-sm">Refresh order book</button></div><p class="panel-subtext">Binance public Level-2 snapshot; not a real-time heatmap or proof of whale trades.</p><div id="v4-depth-data" class="v4-stack"><p class="v4-small">Press Refresh to request the public order book.</p></div></article>
+ </div>
+ <div class="v4-two">
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 3.5</span><h2>Funding & Open Interest</h2></div><button type="button" id="v4-futures-refresh" class="btn btn-quiet btn-sm">Refresh derivatives</button></div><div id="v4-derivatives" class="v4-stack"><p class="v4-small">Public futures endpoint; may be unavailable by region/network.</p></div></article>
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 3.5</span><h2>Smart Price Alerts</h2></div><p class="panel-subtext">On-page only. Works while this browser tab is open; not a server-side/background alert service.</p><form id="v4-alert-form" class="v4-form"><label>Price target (USDT)<input id="v4-alert-price" type="number" step="any" min="0.00000001" required placeholder="Price level" /></label><label>Condition<select id="v4-alert-direction"><option value="above">Crosses above</option><option value="below">Crosses below</option></select></label><button type="submit" class="btn btn-primary btn-sm">+ Add alert</button></form><div id="v4-alerts" class="v4-stack"></div><p id="v4-alert-status" class="v4-small"></p></article>
+ </div>
+ <div class="v4-two">
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 3.5 · हिंदी</span><h2>Hindi Research Copilot</h2></div><span class="subtle-pill">RULE BASED · NO LLM KEY</span></div><p class="panel-subtext">पूछें: “BTC में ट्रेंड क्या है?”, “क्यों?”, “रिस्क?”, “FVG?” — उत्तर चार्ट के उपलब्ध डेटा से बनाए जाते हैं।</p><form id="v4-copilot-form" class="v4-form"><label class="v4-grow">Your question<input id="v4-copilot-input" maxlength="180" placeholder="क्या अभी ट्रेड करना चाहिए?" required /></label><button type="submit" class="btn btn-primary btn-sm">Ask</button><button id="v4-speak" type="button" class="btn btn-quiet btn-sm">🔊 सुनाएँ</button></form><div id="v4-copilot-answer" class="v4-answer" aria-live="polite">यह AI language model नहीं है। इस version में chart-specific transparent rules हैं।</div></article>
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 4.0</span><h2>Strategy Backtesting</h2></div></div><p class="panel-subtext">EMA20/EMA50 long-only research strategy, next-open fills, fees & slippage, 70/30 train/test split. No live trade signals.</p><div class="v4-form"><label>Fee per side (%)<input id="v4-fee" type="number" min="0" max="3" step="0.01" value="0.10" /></label><label>Slippage per side (%)<input id="v4-slip" type="number" min="0" max="3" step="0.01" value="0.05" /></label><button id="v4-backtest-run" type="button" class="btn btn-primary btn-sm">Run historical test</button></div><div id="v4-backtest" class="v4-stack"><p class="v4-small">Requires successfully fetched public historical candles; sample fallback is never backtested.</p></div></article>
+ </div>
+ <div class="v4-two">
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 4.0</span><h2>Paper Trading Simulator</h2></div><span class="subtle-pill">VIRTUAL $10,000</span></div><p class="panel-subtext">Local-only unlevered long positions at last displayed snapshot + 0.05% simulated slippage; 0.10% fee each side.</p><form id="v4-paper-form" class="v4-form"><label>USDT allocation<input id="v4-paper-size" type="number" min="1" step="1" value="200" /></label><button type="submit" class="btn btn-primary btn-sm">Buy virtual spot</button><button id="v4-paper-reset" type="button" class="btn btn-quiet btn-sm">Reset</button></form><div id="v4-paper" class="v4-stack"></div></article>
+  <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 4.0</span><h2>AI Mistake Coach</h2></div><button id="v4-coach-refresh" type="button" class="btn btn-quiet btn-sm">Review journal</button></div><p class="panel-subtext">Rule-based review of local paper trades and observations. No claims about professional advice.</p><div id="v4-coach" class="v4-stack"></div></article>
+ </div>
+ <article class="panel v4-card"><div class="panel-header"><div><span class="micro-label">VERSION 4.0</span><h2>Six-Role Research Desk</h2></div><button id="v4-desk-run" type="button" class="btn btn-primary btn-sm">Run research desk</button></div><p class="panel-subtext">Six transparent, sequential rule-based roles. They are not autonomous LLM agents; Execution is ticket-only and NEVER sends orders.</p><div id="v4-desk" class="v4-agents"><p class="v4-small">Click to generate a research report using available chart evidence.</p></div></article>
+</section>
+
+        <section class="lower-grid" id="scanner"><article class="panel scanner-panel"><div class="panel-header"><div><div class="micro-label">MULTI-ASSET SCANNER</div><h2>24h Market Movers</h2></div><span class="subtle-pill">5 ASSETS</span></div><p class="panel-subtext">बदलाव की रैंकिंग • ये Order Block score नहीं हैं</p><div class="scanner-table" role="table" aria-label="Market movers"><div class="scanner-row table-head" role="row"><span>Asset</span><span>Last Price</span><span>24h Change</span><span></span></div><div id="scanner-rows"></div></div></article>
+        <article class="panel risk-panel" id="risk"><div class="panel-header"><div><div class="micro-label">CAPITAL PROTECTION</div><h2>Risk Calculator</h2></div><span class="risk-shield">♢</span></div><p class="panel-subtext">Spot position size estimate • no leverage assumed</p>
+          <div class="risk-form"><label>Account Capital (USDT)<input id="risk-capital" inputmode="decimal" type="number" min="0" step="any" value="1000" /></label><label>Risk per Setup (%)<input id="risk-percent" inputmode="decimal" type="number" min="0.1" max="100" step="0.1" value="1" /></label><label>Entry Price (USDT)<input id="risk-entry" inputmode="decimal" type="number" min="0" step="any" value="100" /></label><label>Stop Price (USDT)<input id="risk-stop" inputmode="decimal" type="number" min="0" step="any" value="98" /></label></div>
+          <div class="risk-results"><div><span>Maximum planned loss</span><strong id="risk-loss">$10.00</strong></div><div><span>Maximum spot quantity</span><strong id="risk-qty">0.000000</strong></div><div><span>Estimated position cost</span><strong id="risk-notional">$0.00</strong></div></div><p class="small-warning" id="risk-warning">Slippage, fees और gap risk शामिल नहीं हैं। Actual loss अधिक हो सकता है।</p></article></section>
+
+        <section class="panel journal-panel" id="journal"><div class="panel-header"><div><div class="micro-label">YOUR PRIVATE WORKSPACE</div><h2>Trade Journal</h2></div><span class="subtle-pill">ON THIS DEVICE</span></div><p class="panel-subtext">लोकल ब्राउज़र में अपनी रिसर्च नोट्स लिखें। कोई ऑर्डर प्लेस नहीं होता।</p><form id="journal-form" class="journal-form"><label>Asset<select id="journal-symbol"><option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>BNBUSDT</option><option>XRPUSDT</option></select></label><label>Observation<select id="journal-side"><option value="Bullish">Bullish</option><option value="Bearish">Bearish</option><option value="Neutral">Neutral</option></select></label><label class="note-label">Your note<input maxlength="160" id="journal-note" placeholder="उदाहरण: Support zone tested twice" required /></label><button class="btn btn-primary" type="submit">+ Add Note</button></form><div id="journal-list" class="journal-list"><p class="empty-journal">अभी कोई नोट नहीं है। अपनी पहली मार्केट ऑब्जर्वेशन जोड़ें।</p></div></section>
+        <footer class="app-footer"><span>© <span id="year"></span> AIUseFlow TradeLab • Independent educational analytics</span><span>Free forever for core features · No financial advice · No auto-trading</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="intelligence.js" defer></script>
+  <script src="engine-v4.js" defer></script>
+  <script src="v4.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
