@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict');
+const {health,gate,liquidity,backtest,paperBuy,paperSell}=require('./engine-v4.js');
+const now=Date.now(),step=3600000;
+const candles=Array.from({length:300},(_,i)=>{let base=100+i*.1+Math.sin(i/7)*3;return {time:now-(299-i)*step,open:base,high:base*1.01,low:base*.99,close:base+.15};});
+assert.equal(health({source:'demo',bars:candles,interval:'1h'}).isUsable,false);
+assert.equal(health({source:'live',bars:candles,interval:'1h',receivedAt:now,now}).isUsable,true);
+assert.equal(health({source:'live',bars:candles.slice(0,-10),interval:'1h',receivedAt:now,now}).isUsable,false);
+assert.match(gate({source:'demo',smart:{score:90},bars:candles,interval:'1h'}).status,/DO NOT TRADE/);
+assert.equal(gate({source:'live',smart:{score:50,bias:'MIXED'},bars:candles,interval:'1h',receivedAt:now,now}).status,'UNCLEAR · WAIT');
+assert.throws(()=>liquidity({bids:[],asks:[]}));
+const l=liquidity({bids:[['100','3']],asks:[['101','1']]});assert(l.imbalance>0);assert.equal(l.bestBid,100);
+const bt=backtest(candles,{fee:.001,slip:.0005});assert.equal(bt.totalBars,300);assert(bt.trainCount>0&&bt.testCount>0);
+assert(Number.isFinite(bt.train.returnPct)&&Number.isFinite(bt.test.maxDrawdownPct));
+assert.throws(()=>backtest(candles.slice(0,30)));
+let acc={cash:1000,positions:[],fills:[]};acc=paperBuy(acc,{symbol:'BTCUSDT',price:100,amount:200,source:'SAMPLE DEMO',time:100});assert.equal(acc.cash,800);assert(acc.positions[0].qty>1.9);
+acc=paperSell(acc,acc.positions[0].id,110,200);assert.equal(acc.positions.length,0);assert(acc.cash>1000);assert.equal(acc.fills.length,2);
+assert.throws(()=>paperBuy(acc,{symbol:'BTCUSDT',price:100,amount:999999}));
+console.log('PASS: 12 assertions/conditions in TradeLab 4 engine');
